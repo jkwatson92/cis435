@@ -1,4 +1,5 @@
 <!-- Display the technicians  -->
+<?php include '../view/header.php'; ?>
 <?php
 require('../model/database.php');
 //Get name for selected category
@@ -19,11 +20,6 @@ $statement2->closeCursor();
 ?>
 <!DOCTYPE html>
 <html>
-<!-- the head section -->
-<head>
-  <title>SportsPro Technical Support</title>
-  <link rel="stylesheet" type="text/css" href="../main.css"/>
-</head>
 <!-- the body section -->
 <body>
   <main>
@@ -60,7 +56,6 @@ $statement2->closeCursor();
       <p><a href="add_tech_form.php">Add Technician</a></p>
     </section>
   </main>
-  <footer>&copy; <?php echo data("Y"); ?> SportsPro, Inc.</p>
-  </footer>
 </body>
 </html>
+<?php include '../view/footer.php'; ?>
