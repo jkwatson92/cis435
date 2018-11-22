@@ -23,8 +23,6 @@ $statement2->closeCursor();
 <!-- the body section -->
 <body>
   <main>
-    <h1>SportsPro Technical Support</h1>
-    <h3>Sports management software for the sports enthusiast!</h3>
       <!-- display a list of categories -->
       <h2>Technician List</h2>
     <section>
