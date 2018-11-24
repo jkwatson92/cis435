@@ -34,3 +34,4 @@ $statement->closeCursor();
   </main>
 </body>
 </html>
+<?php include '../view/footer.php'; ?>

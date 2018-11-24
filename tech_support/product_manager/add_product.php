@@ -17,7 +17,7 @@ if($productCodeIn==null ||$name==null|| $version==null
 $timestamp = strtotime($releaseDate);
 $new_date_format = date('Y-m-d H:i:s', $timestamp);
 //Add the product to the database
-$query='INSERT INTO products (productCodeIn, name, version, releaseDate)
+$query='INSERT INTO products (productCode, name, version, releaseDate)
   VALUES(:productCode, :name, :version, :releaseDate)';
 $statement = $db->prepare($query);
 $statement->bindValue(':productCode',$productCodeIn);

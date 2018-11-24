@@ -2,7 +2,7 @@
 require_once('../model/database.php');
 
 //Delete the product from the database
-$product_code = filter_input(INPUT_POST, 'product_code',FILTER_VALIDATE_INT);
+$product_code = filter_input(INPUT_POST, 'product_code');
 if($product_code!=false){
   $query = 'DELETE FROM products WHERE productCode =:product_code';
   $statement=$db->prepare($query);
@@ -10,7 +10,6 @@ if($product_code!=false){
   $statement->execute();
   $statement->closeCursor();
 }
-
 //Display the Product List page
 include('index.php');
 
