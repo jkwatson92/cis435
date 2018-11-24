@@ -17,6 +17,7 @@ $statement->closeCursor();
   <header><h1>Technician Manager</h1></header>
   <main>
     <h1>Add Technician</h1>
+    <section id="aligned">
     <form action="add_technician.php" method="post" id="add_tech_form">
       <label>First Name:</label>
       <input type="text" name="firstName"><br>
@@ -31,6 +32,7 @@ $statement->closeCursor();
       <label>&nbsp;</label>
       <input type="submit" value="Add Technician"><br>
     </form>
+  </section>
     <p><a href="index.php">View Technician List</a></p>
   </main>
   <footer>
