@@ -5,9 +5,9 @@ require('../model/database.php');
 //Get the customers ID
 $customer_id=filter_input(INPUT_POST,'customer_id');
 if($customer_id==null){
-	//echo "nope";
+	echo "nope";
 } else{
-	//echo $customer_id;
+	echo $customer_id;
 }
 
 //Find customers with given ID
@@ -40,7 +40,7 @@ endforeach;
       <h2>View/Update Customer</h2>
       <br>
       <section id="aligned">
-      <form action="update_page.php">
+      <form action="update_page.php" method="post">
           <label>First Name:</label><input type="text" name="firstName" value="<?php echo $first; ?>"><br>
           <label>Last Name:</label><input type="text" name="lastName" value="<?php echo $last; ?>"><br>
           <label>Address:</label><input type="text" name="address" value="<?php echo $addy; ?>"><br>

@@ -18,6 +18,7 @@ $statement->closeCursor();
 
 //Display the Customer page
 include('index.php');
+include "redirect.php";
 ?>
 
 <!DOCTYPE html>
@@ -43,8 +44,8 @@ include('index.php');
             <td><form action="view_and_update.php" method="post">
               <input type="hidden" name="customer_id" value="<?php echo $cus['customerID']; ?>">
               <input name="submit" type="submit" value="Select">
-				<?php
-					include "redirect.php";
+				<?php 
+				echo $cus['customerID'];
 				?>
             </form></td>
           </tr>
