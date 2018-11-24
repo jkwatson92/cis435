@@ -3,11 +3,11 @@
 require('../model/database.php');
 
 //Get the customers ID
-$customer_id=filter_input(INPUT_POST,'customer_id');
+$customer_id=$_GET['custID'];
 if($customer_id==null){
-	echo "nope";
+	echo "Customer ID Not Found";
 } else{
-	echo $customer_id;
+	//echo $customer_id;
 }
 
 //Find customers with given ID

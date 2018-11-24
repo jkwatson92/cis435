@@ -41,12 +41,9 @@ include "redirect.php";
             <td><?php echo $cus['firstName'].' '.$cus['lastName']; ?></td>
             <td><?php echo $cus['email']; ?></td>
             <td class="right"><?php echo $cus['city']; ?></td>
-            <td><form action="view_and_update.php" method="post">
+            <td><form action="" method="post">
               <input type="hidden" name="customer_id" value="<?php echo $cus['customerID']; ?>">
               <input name="submit" type="submit" value="Select">
-				<?php 
-				echo $cus['customerID'];
-				?>
             </form></td>
           </tr>
         <?php endforeach; ?>
