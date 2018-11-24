@@ -5,7 +5,7 @@ require('../model/database.php');
 //Get the customers last name
 $last_name=filter_input(INPUT_POST,'lastName');
 
-echo $last_name;
+//echo $last_name;
 
 //Find customers with given last name
 $queryLastName= 'SELECT * FROM customers WHERE lastName =:last_name';
