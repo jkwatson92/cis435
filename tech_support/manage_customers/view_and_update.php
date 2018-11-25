@@ -3,8 +3,12 @@
 require('../model/database.php');
 
 //Get the customers ID
-$customer_id=filter_input(INPUT_POST,'customerID');
-echo '<script>console.log("view/update")</script>';
+$customer_id=$_GET['custID'];
+if($customer_id==null){
+	echo "Customer ID Not Found";
+} else{
+	//echo $customer_id;
+}
 
 //Find customers with given ID
 $query= 'SELECT * FROM customers WHERE customerID =:customer_id';
@@ -13,6 +17,19 @@ $statement->bindValue(':customer_id',$customer_id);
 $statement->execute();
 $customers=$statement->fetchAll();
 $statement->closeCursor();
+foreach($customers as $cus) :
+$cusID=$cus['customerID'];
+$first=$cus['firstName'];
+$last=$cus['lastName'];
+$addy=$cus['address'];
+$city=$cus['city'];
+$state=$cus['state'];
+$post=$cus['postalCode'];
+$country=$cus['countryCode'];
+$phone=$cus['phone'];
+$email=$cus['email'];
+$pass=$cus['password'];
+endforeach;
 ?>
 
 <!DOCTYPE html>
@@ -23,17 +40,18 @@ $statement->closeCursor();
       <h2>View/Update Customer</h2>
       <br>
       <section id="aligned">
-      <form action="/update_page.php">
-          <label>First Name:</label><input type="text" name="firstName" value="<?php echo $customers['firstName']; ?>"><br>
-          <label>Last Name:</label><input type="text" name="lastName"><br>
-          <label>Address:</label><input type="text" name="address"><br>
-          <label>City:</label><input type="text" name="city"><br>
-          <label>State:</label><input type="text" name="state"><br>
-          <label>Postal Code:</label><input type="text" name="postalCode"><br>
-          <label>Country Code:</label><input type="text" name="countryCode"><br>
-          <label>Phone:</label><input type="text" name="phone"><br>
-          <label>Email:</label><input type="text" name="email"><br>
-          <label>Password:</label><input type="text" name="password"><br>
+      <form action="update_page.php" method="post">
+          <label>First Name:</label><input type="text" name="firstName" value="<?php echo $first; ?>"><br>
+          <label>Last Name:</label><input type="text" name="lastName" value="<?php echo $last; ?>"><br>
+          <label>Address:</label><input type="text" name="address" value="<?php echo $addy; ?>"><br>
+          <label>City:</label><input type="text" name="city" value="<?php echo $city; ?>"><br>
+          <label>State:</label><input type="text" name="state" value="<?php echo $state; ?>"><br>
+          <label>Postal Code:</label><input type="text" name="postalCode" value="<?php echo $post; ?>"><br>
+          <label>Country Code:</label><input type="text" name="countryCode" value="<?php echo $country; ?>"><br>
+          <label>Phone:</label><input type="text" name="phone" value="<?php echo $phone; ?>"><br>
+          <label>Email:</label><input type="text" name="email" value="<?php echo $email; ?>"><br>
+          <label>Password:</label><input type="text" name="password" value="<?php echo $pass; ?>"><br>
+		  <input type='hidden' name="customerID" value="<?php echo $cusID; ?>">
           <input type="submit" value="Update Customer" id="label">
           <br><br>
         </form>

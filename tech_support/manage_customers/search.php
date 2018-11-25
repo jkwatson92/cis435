@@ -1,11 +1,11 @@
 <?php
+//$_POST = array();
 require('../model/database.php');
 
 //Get the customers last name
 $last_name=filter_input(INPUT_POST,'lastName');
 
-echo '<script>console.log("DO A THING")</script>';
-echo "'<script>console.log(\"$last_name\")</script>'";
+//echo $last_name;
 
 //Find customers with given last name
 $queryLastName= 'SELECT * FROM customers WHERE lastName =:last_name';
@@ -18,6 +18,7 @@ $statement->closeCursor();
 
 //Display the Customer page
 include('index.php');
+include "redirect.php";
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +27,7 @@ include('index.php');
 <body>
   <main>
     <section>
-      <!-- display a table of technicians -->
+      <!-- display a table of customers -->
       <h2>Results</h2>
       <table>
         <tr>
@@ -37,16 +38,12 @@ include('index.php');
         </tr>
         <?php foreach($customers as $cus) : ?>
           <tr>
-            <?php $first=$cus['firstName'];
-                  $last=$cus['lastName'];
-                  $fullName=$first.' '.$last;
-                  ?>
-            <td><?php echo $fullName ?></td>
+            <td><?php echo $cus['firstName'].' '.$cus['lastName']; ?></td>
             <td><?php echo $cus['email']; ?></td>
             <td class="right"><?php echo $cus['city']; ?></td>
-            <td><form action="view_and_update.php" method="post">
+            <td><form action="" method="post">
               <input type="hidden" name="customer_id" value="<?php echo $cus['customerID']; ?>">
-              <input type="submit" value="Select">
+              <input name="submit" type="submit" value="Select">
             </form></td>
           </tr>
         <?php endforeach; ?>
