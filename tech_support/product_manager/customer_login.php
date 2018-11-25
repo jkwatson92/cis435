@@ -1,6 +1,5 @@
-<?php include '../view/header.php'; ?>
-<?php
-require('../model/database.php');
+<?php include '../view/header.php'; 
+  require('../model/database.php');
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +10,7 @@ require('../model/database.php');
       <h2>Get Customer</h2>
       You must enter the customer's email address to select the customer. (For the incident)
       <div>
-        <form action="get_customer.php" method="post">
+        <form action="register_product.php" method="post">
         <label for="get_customer.php">Email: </label>
         <input type="text" name="custEmail">
         <input type="submit" value="Get Customer">

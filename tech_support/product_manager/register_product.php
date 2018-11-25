@@ -1,14 +1,6 @@
 <?php
 require('../model/database.php');
 
-function debug_to_console( $data ) {
-    $output = $data;
-    if ( is_array( $output ) )
-        $output = implode( ',', $output);
-
-    echo "<script>console.log( 'Debug Objects: " . $output . "' );</script>";
-}
-
 //Get Customers email
 $cust_email=filter_input(INPUT_POST,'custEmail');
 
@@ -47,22 +39,18 @@ $statement->execute();
 $products=$statement->fetchAll();
 $statement->closeCursor();
 
-
-
+include '../view/header.php';
 ?>
-
-<?php include '../view/header.php'; ?>
 <!DOCTYPE html>
 <html>
-<!-- the body section -->
 <body>
   <main>
     <section>
       <!-- display a table of technicians -->
-      <h2>Create Incident</h2>
+      <h2>Register Product</h2>
       <div>
-        <form id="createIncident" action="add_incident.php" method="post" >
-          <label for="customerName"> Customer:</label>
+        <form id="createRegistration" action="product_registered.php" method="post" >
+          <label for="customerName"> Customer: </label>
             <?php echo $fname;
                   echo " ";
                   echo $lname; ?>
@@ -77,14 +65,8 @@ $statement->closeCursor();
               endforeach;
               ?>
             </select>
-            <br><br>
-            <label for="title"> Title:</label> <input name="title" type="text">
-            <br> <br>
-            <label for="description"> Description:</label>
             <br>
-            <textarea name="description" form="createIncident" value="description" rows="10" cols="30"> What's the issue? </textarea>
-            <br> <br>
-            <input type="submit" value="Create Incident">
+            <input type="submit" value="Register Product">
         </form>
       </div>
     </section>
