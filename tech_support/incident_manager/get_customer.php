@@ -62,13 +62,13 @@ $statement->closeCursor();
       <h2>Create Incident</h2>
       <div>
         <form id="createIncident" action="add_incident.php" method="post" >
-          <label for="customerName"> Customer:
+          <label for="customerName"> Customer:</label>
             <?php echo $fname;
                   echo " ";
                   echo $lname; ?>
-          <input type="hidden" name="custID" value=<?php echo $cID; ?>;
+          <input type="hidden" name="custID" value=<?php echo $cID; ?>
           <br> <br>
-          <label for="product"> Product:
+          <label for="product"> Product: </label>
             <select name="product">
               <option value="">-------------------</option>
               <?php
@@ -78,9 +78,9 @@ $statement->closeCursor();
               ?>
             </select>
             <br><br>
-            <label for="title"> Title: <input name="title" type="text">
+            <label for="title"> Title:</label> <input name="title" type="text">
             <br> <br>
-            <label for="description"> Description:
+            <label for="description"> Description:</label>
             <br>
             <textarea name="description" form="createIncident" value="description" rows="10" cols="30"> What's the issue? </textarea>
             <br> <br>
