@@ -2,14 +2,6 @@
 <?php include '../view/header.php'; ?>
 <?php
 require('../model/database.php');
-//Get name for selected category
-$queryProducts = 'SELECT * FROM products WHERE productCode =: product_code';
-$statement1 = $db->prepare($queryProducts);
-$statement1->bindValue(':product_code',$product_code);
-$statement1->execute();
-$products = $statement1->fetch();
-$product_name = $products['productCode'];
-$statement1->closeCursor();
 
 //Get all products
 $queryAllProducts = 'SELECT * FROM products ORDER BY productCode';
@@ -32,7 +24,6 @@ $statement2->closeCursor();
       <h2>Product List</h2>
     <section>
       <!-- display a table of products -->
-      <h2><?php echo $product_name; ?></h2>
       <table>
         <tr>
           <th>Code</th>

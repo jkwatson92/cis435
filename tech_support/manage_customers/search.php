@@ -48,3 +48,4 @@ include "redirect.php";
   </main>
 </body>
 </html>
+<?php if(isset($_POST['search'])){include '../view/footer.php';} ?>

@@ -2,14 +2,6 @@
 <?php include '../view/header.php'; ?>
 <?php
 require('../model/database.php');
-//Get name for selected category
-$queryTechs = 'SELECT * FROM technicians WHERE techID =: tech_id';
-$statement1 = $db->prepare($queryTechs);
-$statement1->bindValue(':tech_id',$tech_id);
-$statement1->execute();
-$techs = $statement1->fetch();
-$techID_name = $techs['techID'];
-$statement1->closeCursor();
 
 //Get all technicians
 $queryAllTechs = 'SELECT * FROM technicians ORDER BY techID';
@@ -27,7 +19,6 @@ $statement2->closeCursor();
       <h2>Technician List</h2>
     <section>
       <!-- display a table of technicians -->
-      <h2><?php echo $techID_name; ?></h2>
       <table>
         <tr>
           <th>First Name</th>

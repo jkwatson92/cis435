@@ -13,9 +13,9 @@ require('../model/database.php');
       <div>
         <form action="search.php" method="post">
         <input type="text" name="lastName">
-        <input type="submit" value="Search">
+        <input name='search' type="submit" value="Search">
       </div>
   </main>
 </body>
 </html>
-<?php include '../view/footer.php'; ?>
+<?php if(!isset($_POST['search'])){include '../view/footer.php';} ?>
