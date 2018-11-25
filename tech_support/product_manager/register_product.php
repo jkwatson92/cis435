@@ -39,7 +39,7 @@ $statement->execute();
 $products=$statement->fetchAll();
 $statement->closeCursor();
 
-include '../view/header.php'; ?>
+include '../view/header.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -47,7 +47,7 @@ include '../view/header.php'; ?>
   <main>
     <section>
       <!-- display a table of technicians -->
-      <h2>Create Incident</h2>
+      <h2>Register Product</h2>
       <div>
         <form id="createRegistration" action="product_registered.php" method="post" >
           <label for="customerName"> Customer: </label>

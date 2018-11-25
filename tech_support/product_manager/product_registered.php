@@ -1,15 +1,15 @@
-<?php include '../view/header.php';
+<?php
 
 $cID=filter_input(INPUT_POST,'custID');
 $productCode=filter_input(INPUT_POST, 'productCode');
 
-if($productCode==null || $fname==null || $lname==null){
+if($productCode==null || $cID==null){
   $error="Invalid product data. Check all fields and try again.";
-  include('../errors/error.php');
+  header('location ../errors/error.php');
 }
 else{
   require_once('../model/database.php');
-}
+
 
 //Date Information
 $openDate = date('Y-m-d H:i:s');
@@ -28,6 +28,9 @@ $statement->bindValue(':product',$product);
 $statement->bindValue(':openDate',$openDate);
 $statement->execute();
 $statement->closeCursor();
+}
+
+include '../view/header.php';
 
 ?>
 <!DOCTYPE html>
@@ -39,7 +42,6 @@ $statement->closeCursor();
       <!-- display a table of technicians -->
       <h2>Register Product</h2>
       <div>
-        //TODO: Check PHP Injection Here
         Product (<?php echo $productCode; ?>) was registered successfully.
       </div>
     </section>
