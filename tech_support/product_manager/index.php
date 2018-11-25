@@ -60,3 +60,4 @@ $statement2->closeCursor();
 </body>
 </html>
 <?php include '../view/footer.php'; ?>
+
