@@ -1,15 +1,11 @@
 <?php
-//$_POST = array();
 require('../model/database.php');
 
 //Get the customers last name
 $last_name=filter_input(INPUT_POST,'lastName');
 
-//echo $last_name;
-
 //Find customers with given last name
 $queryLastName= 'SELECT * FROM customers WHERE lastName =:last_name';
-// $results = mysql_query('SELECT * FROM customers WHERE lastName =:last_name');
 $statement = $db->prepare($queryLastName);
 $statement->bindValue(':last_name',$last_name);
 $statement->execute();
