@@ -1,5 +1,5 @@
 <?php
-//Get the techs data
+//Get the customer data
 $firstName=filter_input(INPUT_POST,'firstName');
 $lastName=filter_input(INPUT_POST,'lastName');
 $address=filter_input(INPUT_POST,'address');
@@ -19,15 +19,13 @@ if($firstName==null ||$lastName==null|| $address==null||$city==null||$state==nul
 }else{
     require_once('../model/database.php');
 }
-//Add the product to the database
+//Update customer info in database
 $query="UPDATE customers SET firstName='".$firstName."', lastName='".$lastName."', address='".$address."', city='".$city."', state='".$state."', postalCode='".$postalCode."', countryCode='".$countryCode."', phone='".$phone."', email='".$email."', password='".$password."' WHERE customerID='".$customer_id."'";
 $statement = $db->prepare($query);
-
 
 $statement->execute();
 $statement->closeCursor();
 
 //Display the Customer List page
 include('index.php');
-
 ?>

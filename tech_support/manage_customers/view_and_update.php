@@ -1,14 +1,9 @@
-<?php include '../view/header.php'; ?>
-<?php
+<?php 
+include '../view/header.php';
 require('../model/database.php');
 
 //Get the customers ID
 $customer_id=$_GET['custID'];
-if($customer_id==null){
-	echo "Customer ID Not Found";
-} else{
-	//echo $customer_id;
-}
 
 //Find customers with given ID
 $query= 'SELECT * FROM customers WHERE customerID =:customer_id';
