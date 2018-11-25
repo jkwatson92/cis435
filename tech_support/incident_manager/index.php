@@ -13,7 +13,7 @@ require('../model/database.php');
       <div>
         <form action="get_customer.php" method="post">
         <label for="get_customer.php">Email: </label>
-        <input type="text" name="email">
+        <input type="text" name="custEmail">
         <input type="submit" value="Get Customer">
       </div>
   </main>
