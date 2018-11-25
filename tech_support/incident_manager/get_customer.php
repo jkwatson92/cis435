@@ -1,14 +1,6 @@
 <?php
 require('../model/database.php');
 
-function debug_to_console( $data ) {
-    $output = $data;
-    if ( is_array( $output ) )
-        $output = implode( ',', $output);
-
-    echo "<script>console.log( 'Debug Objects: " . $output . "' );</script>";
-}
-
 //Get Customers email
 $cust_email=filter_input(INPUT_POST,'custEmail');
 

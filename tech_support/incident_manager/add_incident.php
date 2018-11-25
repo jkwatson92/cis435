@@ -1,20 +1,11 @@
 <?php
 
-function debug_to_console( $data ) {
-    $output = $data;
-    if ( is_array( $output ) )
-        $output = implode( ',', $output);
-
-    echo "<script>console.log( 'Debug Objects: " . $output . "' );</script>";
-}
 
 //Get Incident Information
 $cID=filter_input(INPUT_POST, 'custID');
 $product=filter_input(INPUT_POST,'product');
 $title=filter_input(INPUT_POST,'title');
 $description=filter_input(INPUT_POST,'description');
-
-debug_to_console($cID);
 
 //Validate Incident Info
 if($cID==null || $product==null
@@ -35,8 +26,6 @@ $query='INSERT INTO incidents (customerID, productCode, dateOpened, title, descr
   VALUES(:cID, :product, :openDate, :title, :description)';
 
 $statement = $db->prepare($query);
-
-debug_to_console($openDate);
 
 $statement->bindValue(':cID',$cID);
 $statement->bindValue(':product',$product);
