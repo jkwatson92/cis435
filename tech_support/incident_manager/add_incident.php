@@ -20,14 +20,14 @@ debug_to_console($cID);
 if($cID==null || $product==null
 ||$title==null || $description==null){
     $error="Invalid product data. Check all fields and try again.";
-    include('errors/error.php');
+    include('../errors/error.php');
   }
   else{
     require_once('../model/database.php');
-  }
+
 
 //Date Information
-$openDate = time();
+$openDate = date('Y-m-d H:i:s');
 
 
 //Add the product to the database
@@ -35,6 +35,8 @@ $query='INSERT INTO incidents (customerID, productCode, dateOpened, title, descr
   VALUES(:cID, :product, :openDate, :title, :description)';
 
 $statement = $db->prepare($query);
+
+debug_to_console($openDate);
 
 $statement->bindValue(':cID',$cID);
 $statement->bindValue(':product',$product);
@@ -46,5 +48,5 @@ $statement->closeCursor();
 
 //Display the Technician List page
 include('incident_created.php');
-
+}
 ?>
